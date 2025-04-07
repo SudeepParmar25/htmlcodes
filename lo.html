@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Someone I Love</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fef6f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    #startScreen, #revealScreen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #startScreen.active, #revealScreen.active {
+      display: flex;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      background-color: #ff6f91;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff3f71;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 100%;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      margin: 15px;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .message {
+      font-size: 1.2rem;
+      color: #333;
+      margin-top: 20px;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    .visible {
+      opacity: 1 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="startScreen" class="active">
+    <h1>Want to know who I love?</h1>
+    <button onclick="revealLove()">Click to See</button>
+  </div>
+
+  <div id="revealScreen">
+    <img id="photo1" src="https://imgur.com/BceqoS4" alt="Her">
+    <img id="photo2" src="https://imgur.com/9HicM6P" alt="Her">
+    <div class="message" id="finalMessage">It’s always been you. 💖</div>
+  </div>
+
+  <script>
+    function revealLove() {
+      document.getElementById('startScreen').classList.remove('active');
+      document.getElementById('revealScreen').classList.add('active');
+
+      setTimeout(() => document.getElementById('photo1').classList.add('visible'), 500);
+      setTimeout(() => document.getElementById('photo2').classList.add('visible'), 1500);
+      setTimeout(() => document.getElementById('finalMessage').classList.add('visible'), 2500);
+    }
+  </script>
+
+</body>
+</html>
